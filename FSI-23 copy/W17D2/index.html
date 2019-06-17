@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+        class Animal{
+            constructor(firstName, lastName, age){
+                
+                this.firstName = firstName
+                this.lastName = lastName
+                this.age = age
+            }
+        }
+        class Human extends Animal{
+            constructor(firstName, lastName, age){
+                super(firstName, lastName, age)
+
+                let ageValue;
+                let genus;
+
+                if(firstName === "John" && lastName === "Wick"){
+                    ageValue = "unknown"
+                    genus = "Baba Yaga"
+                }
+
+                this.firstName = firstName
+                this.lastName = lastName
+                this.age = ageValue;
+                this.genus = genus;
+                this.speak = firstName === "John" && lastName === "Wick" ? function(){
+                            return "It wasn't just a dog";
+                    } : function(){
+                    return `My name is ${firstName} ${lastName}`
+                }
+            }
+        }
+        class Dog extends Animal{
+            constructor(firstName, lastName, age){
+                super(firstName, lastName, age)
+                    this.firstName = firstName
+                    this.lastName = lastName
+                    this.age = age
+                    this.genus = "canis"
+                    this.speak = function(){
+                        return "woof woof woof"
+                    }
+            }
+        }
+        
+        
+        
+        </script>
+    </body>
+</html>

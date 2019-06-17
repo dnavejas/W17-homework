@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	</head>
+	<body>
+	</body>
+
+	<script>
+		function Animal(firstname, lastname, age) {
+			this.firstname = firstname;
+			this.lastName = lastname;
+			this.age = age;
+		}
+		Animal.prototype.name = function() {
+			return `${this.firstname} ${this.lastName}`;
+		};
+
+		function Human(firstname, lastname, age, genus) {
+			Animal.apply(this, arguments);
+			this.genus = 'homo';
+		}
+		Human.prototype = Object.create(Animal.prototype);
+		Human.prototype.constructor = Human;
+		Human.prototype.speak = function() {
+			return `My name is ${this.name()}`;
+		}
+		function Dog(firstname, lastname, age, genus) {
+			Animal.apply(this, arguments);
+			this.genus = 'canis';
+		}
+		Dog.prototype = Object.create(Animal.prototype);
+		Dog.prototype.constructor = Dog;
+		Dog.prototype.speak = function() {
+			return 'woof woof woof';
+		}
+	</script>
+</html>
